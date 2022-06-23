@@ -1,0 +1,75 @@
+SQL - AULA CS50
+
+Com um aplicativo de planilhas como o Google Sheets, Apple's Numbers, Microsoft Excel ou outros, podemos:
+
+classificar nossos dados
+armazenar dados em linhas e colunas, onde cada entrada adicional é uma linha e as propriedades de cada entrada, como título ou gênero, é uma coluna
+decidir sobre o esquema (schema), ou formato, de nossos dados com antecedência, escolhendo as colunas
+Um banco de dados (database) é um arquivo ou programa que armazena dados para nós.
+
+No SQL, os comandos para realizar cada uma dessas operações são:
+
+CREATE, INSERT
+Por exemplo, para criar uma nova tabela, podemos usar: CREATE TABLE table (column type, ...); onde table é o nome de nossa nova tabela e column é o nome de uma coluna, seguido por seu tipo.
+SELECT
+SELECT column FROM table;
+UPDATE
+DELETE
+
+Podemos verificar o esquema de nossa nova tabela com .schema
+
+O SQL oferece suporte a muitas funções que podemos usar para contar e resumir dados:
+
+AVG
+COUNT
+DISTINCT , para obter valores distintos sem duplicatas
+LOWER
+MAX
+MIN
+UPPER
+…
+
+Também podemos adicionar mais cláusulas ou frases que modificam nossa consulta:
+
+WHERE, resultados correspondentes em uma condição estrita
+LIKE, resultados correspondentes em uma condição menos estrita
+ORDER BY, resultados de ordenação de alguma forma
+LIMIT, limitando o número de resultados
+GROUP BY, agrupando resultados de alguma forma
+…
+
+
+Acontece que o SQL também tem seus próprios tipos de dados para otimizar a quantidade de espaço usado para armazenar dados, que precisaremos especificar ao criar uma tabela manualmente:
+
+BLOB, para "Objeto binário grande", dados binários brutos que podem representar arquivos
+INTEGER
+NUMERIC, como um número, mas não exatamente um número, como uma data ou hora
+REAL, para valores de ponto flutuante
+TEXT, como strings
+As colunas também podem ter atributos adicionais:
+
+NOT NULL, que especifica que deve haver algum valor
+UNIQUE, o que significa que o valor dessa coluna deve ser único para cada linha da tabela
+PRIMARY KEY, como a coluna id acima, que será usada para identificar de forma única cada linha
+FOREIGN KEY, como a coluna show_id acima que se refere a uma coluna em alguma outra tabela
+
+Acontece que também existem subtipos para uma coluna, que podemos ser ainda mais específicos com:
+
+INTEGER
+smallint , com menos bits
+integer
+bigint , com mais bits
+NUMERIC
+boolean
+date
+datetime
+numeric(scale, precision) , com um número fixo de dígitos
+time
+timestamp
+REAL
+real
+double precision , com o dobro de bits
+TEXTO
+char(n) , um número fixo de caracteres
+varchar(n) , um número variável de caracteres, até algum limite n
+text, uma string sem limite

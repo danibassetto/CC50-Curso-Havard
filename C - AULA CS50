@@ -1,0 +1,186 @@
+#include <cs50.h> // Adicionar a biblioteca do CS50
+#include <stdio.h>
+
+int main(void)
+{
+	// get_string é uma função específica da biblioteca do CS50!
+	string answer = get_string("What's your name? ");
+	printf("hello, %s\n", answer);
+}
+
+
+Em C, é necessário dizer o tipo da variavel antes de definí-la
+
+Arquivos de cabeçalho que terminam com .h referem-se a algum outro conjunto de código, como uma biblioteca, que podemos usar em nosso programa. Nós os incluímos com linhas como #include <stdio.h> , por exemplo, para a biblioteca de entrada / saída padrão, que contém a função printf.
+
+O %s é chamado de código de formatação, o que significa apenas que queremos que a função printf substitua uma variável onde está o marcador %s. 
+
+\n é um exemplo de sequência de escape ou algum texto que na verdade representa algum outro texto.
+
+Arquivos de cabeçalho que terminam com .h referem-se a algum outro conjunto de código, como uma biblioteca, que podemos usar em nosso programa. Nós os incluímos com linhas como #include <stdio.h> , por exemplo, para a biblioteca de entrada / saída padrão, que contém a função printf.
+
+----------------- Tipos e Códigos de Formato -----------------
+
+ bool = verdadeira ou falsa
+ char = um único caractere ASCII como a ou 2
+ double = um valor de vírgula flutuante com mais dígitos do que um float
+ float = um valor de vírgula flutuante ou número real com um valor decimal
+ int = inteiros até um certo tamanho ou número de bits
+ long = inteiros com mais bits, para que possam contar mais do que um int
+ string = uma linha de caracteres
+
+E a biblioteca CS50 tem funções correspondentes para obter entrada de vários tipos:
+
+ get_char 
+ get_double 
+ get_float 
+ get_int 
+ get_long 
+ get_string 
+
+Para printf, também, existem diferentes marcadores de posição para cada tipo:
+
+ %c  para caracteres
+ %f  para flutuadores, duplos
+ %i  para ints
+ %li  para longos
+ %s  para strings
+ 
+----------------- Operadores, limitações, truncamento -----------------
+Existem vários operadores matemáticos que podemos usar também:
+
+ +  para adição
+ -  para subtração
+ *  para multiplicação
+ /  para divisão
+ %  para calcular o resto
+
+EXEMPLO:
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void) 
+{
+     int x = get_int("x: ");
+ 
+     int y = get_int("y: ");
+
+     printf("%i\n", x + y); 
+}
+
+OUTRO EXEMPLO:
+
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main (void) 
+{
+     // Pega os números do usuário
+     int x = get_int("x: ");
+     int y = get_int("y: ");
+     
+     // Divide x por y
+     float z = x / y;
+     printf("%li\n", x + y); 
+}
+
+
+----------------- Condições -----------------
+
+Podemos ter condições “if”, “else” e até mesmo “senão se(else if)”.
+Para comparar dois valores em C, usamos ==, dois sinais de igual.
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+     // Usuário entra com o valor de x
+     int x = get_int(“x: “);
+
+     // Usuário entra com o valor de y
+     int y = get_int(“y: “);
+
+     // Compara x e y
+     if (x < y)
+     {
+         printf(“x é menor que y\n”); 
+     }
+     else if (x > y)
+     {
+        printf(“x é maior que y\n”); 
+     }
+     else
+     {
+        printf(“x é igual a y\n”); 
+     }
+}
+
+
+E, logicamente, não precisamos de if (x == y) na condição final, já que esse é o único caso restante, então podemos apenas dizer o contrário com else.
+
+OUTRO EXEMPLO
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+     // Solicita um caracter para o usuário
+     char c = get_char("Você concorda?");
+
+     // Verifica se concordou
+     if (c == ‘S’ || c == ‘s’)
+     {
+         printf(“Concordo.\n”); 
+     }
+     else if (c == ‘N’ || c == ‘n’)
+     {
+        printf(“Não concordo..\n”); 
+     }
+}
+
+Usamos duas barras verticais, || , para indicar um “ou” lógico (matematico), onde qualquer uma das expressões pode ser verdadeira para que a condição seja seguida. (&&, por sua vez, indica um “e” lógico, onde ambas as condições deveriam ser verdadeiras.) 
+
+----------------- Expressões booleanas, loops -----------------
+
+EXEMPLO 1 com while true:
+
+while (true)
+{
+    printf (“Oi mundo!\n”); 
+}
+
+A palavra-chave while (enquanto) requer uma condição, então usamos true como a expressão booleana para garantir que nosso loop seja executado para sempre. while dirá ao computador para verificar se a expressão é verdadeira e, em seguida, executar as linhas dentro das chaves. Em seguida, ele repetirá isso até que a expressão não seja mais verdadeira. Nesse caso, true sempre será true, então nosso loop é um loop infinito ou que será executado para sempre.
+
+EXEMPLO 2 com while:
+
+int i = 0;
+while (i < 50)
+{
+    printf(“Oi mundo!\n”); 
+    i++;
+}
+
+O ++ simboliza que está adicionando 1
+
+EXEMPLO 3 com while:
+
+int i = 50;
+while (i > 0)
+{
+     printf(“Oi mundo!\n”); 
+     i--;
+}
+
+O -- simboliza que subtrai 1
+
+EXEMPLO 4 com for:
+
+int i = 0;
+for (int i = 0; i < 50; i++)
+{
+    printf(“Oi mundo!\n”); 
+}

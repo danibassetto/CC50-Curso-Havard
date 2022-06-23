@@ -1,0 +1,490 @@
+HTML, CSS, JS - AULA CS50
+
+
+----------------- A Internet -----------------
+
+A INTERNET é a rede de redes de computadores que se comunicam entre si, fornecendo a infraestrutura para enviar zeros e uns. No topo dessa base, podemos construir aplicativos que enviam e recebem dados.
+
+Roteadores são computadores especializados, com CPUs e memória, cujo objetivo é retransmitir dados através de cabos ou tecnologias wireless, entre outros dispositivos na internet.
+
+Os protocolos são um conjunto de convenções padrão, como um handshake físico, com o qual o mundo concordou para que os computadores se comuniquem. Por exemplo, existem certos padrões de zeros e uns, ou mensagens, que um computador deve usar para informar a um roteador para onde deseja enviar os dados.
+
+TCP/IP são dois protocolos para enviar dados entre dois computadores. No mundo real, podemos escrever um endereço em um envelope para enviar uma carta a alguém, junto com nosso próprio endereço para receber uma carta. A versão digital de um envelope, ou uma mensagem com endereços de e para, é chamada de pacote (packet).
+
+IP significa protocolo de internet, um protocolo suportado por softwares de computadores modernos, que inclui uma forma padrão para os computadores se endereçarem. Os endereços IP são endereços exclusivos de computadores conectados à Internet, de forma que um pacote enviado de um computador a outro será repassado aos roteadores até chegar ao seu destino.
+
+Os roteadores têm, em sua memória, uma tabela que mapeia os endereços IP para os cabos, cada um conectado a outros roteadores, para que saibam para onde encaminhar os pacotes. Acontece que existem protocolos para os roteadores se comunicarem e descobrirem esses caminhos também.
+DNS , sistema de nome de domínio, é outra tecnologia que traduz nomes de domínio como cs50.harvard.edu em endereços IP. O DNS é geralmente fornecido como um serviço pelo provedor de serviços de Internet mais próximo, ou ISP.
+
+Por fim, o TCP , protocolo de controle de transmissão, é um protocolo final que permite a um único servidor, no mesmo endereço IP, fornecer vários serviços por meio do uso de um número de porta , um pequeno número inteiro adicionado ao endereço IP. Por exemplo, HTTP, HTTPS, e-mail e até mesmo Zoom têm seus próprios números de porta para esses programas usarem para se comunicar na rede.
+
+O TCP também fornece um mecanismo para reenviar pacotes se um pacote for perdido e não recebido. Acontece que, na internet, existem vários caminhos para um pacote a ser enviado, uma vez que muitos roteadores estão interconectados. Portanto, um navegador da web, fazendo uma solicitação para um gato, pode ver seu pacote enviado por um caminho de roteadores e o servidor de resposta pode ver seus pacotes de resposta enviados por outro.
+
+
+----------------- Desenvolvimento WEB -----------------
+
+A web é um aplicativo executado sobre a Internet, o que nos permite obter páginas da web. 
+
+HTTP , ou protocolo de transferência de hipertexto, rege como os navegadores da web e os servidores da web se comunicam nos pacotes TCP/IP.
+
+Dois comandos suportados por HTTP incluem GET e POST. GET permite que um navegador solicite uma página ou arquivo, e POST permite que um navegador envie dados para o servidor.
+
+Um URL ou endereço da web pode ser semelhante a https://www.example.com/.
+
+https é o protocolo que está sendo usado e, neste caso, HTTPS é a versão segura do HTTP, garantindo que o conteúdo dos pacotes entre o navegador e o servidor sejam criptografados.
+
+example.com é o nome de domínio, onde .com é o domínio de nível superior, convencionalmente indicando o “tipo” de site da Web, como um site comercial para .com ou uma organização para .org . Agora, existem centenas de domínios de nível superior, e suas restrições variam quanto a quem pode usá-los, mas muitos deles permitem que qualquer pessoa se registre para um domínio.
+
+www é o nome do host que, por convenção, nos indica que se trata de um serviço “world wide web”. Não é obrigatório, então hoje muitos sites não estão configurados para incluí-lo.
+
+Finalmente, o / no final é uma solicitação para o arquivo padrão, como index.html , com o qual o servidor da web responderá.
+
+----------------- HTML -----------------
+Agora que podemos usar a Internet e o HTTP para enviar e receber mensagens, é hora de ver o que há no conteúdo das páginas da web. HTML , Hypertext Markup Language, não é uma linguagem de programação, mas sim usada para formatar páginas da web e dizer ao navegador como exibir as páginas, usando tags e atributos.
+
+Uma página simples em HTML pode ter a seguinte aparência:
+
+<! DOCTYPE html>
+<html lang = "en" >
+    <head>
+        <title>
+            hello, title
+        </title>
+    </head>
+    <body>
+        hello, body
+    </body>
+</html>
+
+
+----------------- CSS -----------------
+
+Podemos melhorar a estética de nossas páginas com CSS , Cascading Style Sheets, outra linguagem que informa ao nosso navegador como exibir tags em uma página. CSS usa propriedades ou pares de valores-chave, como color: red; para tags com seletores.
+
+Em HTML, temos algumas opções para incluir CSS. Podemos adicionar uma tag <style> dentro da tag <head> , com estilos diretamente dentro, ou podemos vincular a um arquivo styles.css com uma tag <link> dentro da tag <head> .
+
+Também podemos incluir CSS diretamente em cada tag:
+
+<! DOCTYPE html>
+ 
+<html lang = "en" >
+    <head>
+        <title> css </title>
+    </head>
+    <body>
+        <header style = "font-size: large; text-align: center;" >
+            John Harvard
+        </header>
+        <main style = "font-size: medium; text-align: center;" >
+            Welcome to my homepagel!
+        </main>
+        <footer style = "font-size: small; text-align: center;" >
+            Copyright &#169; John Harvard
+        </footer>
+    </body>
+</html>
+
+As tags <header> , <main> e <footer> são como as tags <p> , indicando as seções em que o texto de nossa página está.     
+
+Para cada tag, podemos adicionar um atributo de estilo(style), com o valor sendo uma lista de propriedades de valores-chave CSS, separadas por ponto e vírgula. Aqui, estamos definindo o tamanho da fonte(font-size) para cada tag e alinhando o texto no centro.  
+
+Observe que podemos usar &#169;, uma entidade HTML, como um código para incluir algum símbolo em nossa página da web.
+
+Para fatorar ou separar nosso CSS do HTML, podemos incluir estilos na tag <head> :
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <style>
+
+            header
+            {
+                font-size: large;
+                text-align: center;
+            }
+
+            main
+            {
+                font-size: medium;
+                text-align: center;
+            }
+
+            footer
+            {
+                font-size: small;
+                text-align: center;
+            }
+
+        </style>
+        <title>css</title>
+    </head>
+    <body>
+        <header>
+            John Harvard
+        </header>
+        <main>
+            Welcome to my home page!
+        </main>
+        <footer>
+            Copyright &#169; John Harvard
+        </footer>
+    </body>
+</html>
+
+
+
+Para cada tipo de tag, usamos um seletor de tipo(type selector) CSS para definir o estilo.
+
+Podemos definir nossa própria classe CSS com um . seguido por uma palavra-chave que escolher, então aqui nós criamos .large, .medium e .small, cada um com alguma propriedade para o tamanho da fonte.
+
+Então, em qualquer número de tags no HTML de nossa página, podemos adicionar uma ou mais dessas classes com class="centered large" , reutilizando esses estilos.
+
+Podemos remover a redundância de centered e aplicá-la apenas à tag <body> também. 
+
+Também podemos usar um seletor de class(class selector) mais específico:
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <style>
+
+            .centered
+            {
+                text-align: center;
+            }
+
+            .large
+            {
+                font-size: large;
+            }
+
+            .medium
+            {
+                font-size: medium;
+            }
+
+            .small
+            {
+                font-size: small;
+            }
+
+        </style>
+        <title>css</title>
+    </head>
+    <body>
+        <header class="centered large">
+            John Harvard
+        </header>
+        <main class="centered medium">
+            Welcome to my home page!
+        </main>
+        <footer class="centered small">
+            Copyright &#169; John Harvard
+        </footer>
+    </body>
+</html>
+
+Finalmente, podemos pegar todo o CSS das propriedades e movê-los para outro arquivo com a tag <link>:
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="styles.css" rel="stylesheet">
+        <title>css</title>
+    </head>
+    <body>
+        <header class="centered large">
+            John Harvard
+        </header>
+        <main class="centered medium">
+            Welcome to my home page!
+        </main>
+        <footer class="centered small">
+            Copyright &#169; John Harvard
+        </footer>
+    </body>
+</html>
+
+Podemos usar pseudoseletores (pseudoselectors), que selecionam certos estados: 
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <style>
+
+            #harvard
+            {
+                color: #ff0000;
+            }
+
+            #yale
+            {
+                color: #0000ff;
+            }
+
+            a
+            {
+                text-decoration: none;
+            }
+
+            a:hover
+            {
+                text-decoration: underline;
+            }
+
+        </style>
+        <title>link</title>
+    </head>
+    <body>
+        Visit <a href="https://www.harvard.edu/" id="harvard" >Harvard</a> or <a href="https://www.yale.edu/" id="yale" >Yale</a>.
+    </body>
+</html>
+
+
+Aqui, estamos usando a:hover para definir propriedades em tags <a> quando o usuário passa o mouse sobre elas.    
+
+Também temos um atributo id em cada tag <a>, para definir cores diferentes em cada um com seletores de ID (ID selectors) que começam com um # no CSS. 
+
+----------------- JavaScript -----------------
+
+Para escrever um código que pode ser executado nos navegadores dos usuários ou no cliente, usaremos uma nova linguagem, JavaScript.
+
+A sintaxe do JavaScript é semelhante à do C e do Python para construções básicas:
+
+let counter = 0;
+counter = counter + 1;
+counter += 1;
+counter++;
+if(x < y)
+{
+
+}
+if(x < y)
+{
+
+}
+else
+{
+
+}
+if(x < y)
+{
+
+}
+else if(x > y)
+{
+
+}
+else
+{
+
+}
+while(true)
+{
+
+}
+for(let i = 0; i < 3; i++)
+{
+
+}
+ Observe que o JavaScript também é digitado livremente, com let sendo a palavra-chave para declarar variáveis ​​de qualquer tipo.
+Com o JavaScript, podemos alterar o HTML no navegador em tempo real. Podemos usar tags <script> para incluir nosso código diretamente ou de um arquivo .js.
+
+Vamos criar outro formulário:
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script>
+
+            function greet()
+            {
+                alert('hello, body');
+            }
+
+        </script>
+        <title>hello</title>
+    </head>
+    <body>
+        <form onsubmit="greet(); return false;">
+            <input id="name" type="text">
+            <input type="submit">
+        </form>
+    </body>
+</html>
+
+Aqui, não adicionaremos uma ação ao nosso formulário, pois ele permanecerá na mesma página. Em vez disso, teremos um atributo onsubmit que chamará uma função que definimos em JavaScript e usará return false; para evitar que o formulário seja realmente enviado em qualquer lugar.
+Agora, se carregarmos essa página, veremos hello, body sendo mostrado quando enviarmos o formulário.
+Como nossa tag de entrada, ou elemento, tem um ID de name , podemos usá-lo em nosso script:
+
+<script>
+
+    function greet()
+    {
+        let name = document.querySelector('#name').value;
+        alert('hello, ' + name);
+    }
+
+</script>
+
+document é uma variável global que vem com JavaScript no navegador, e querySelector é outra função que podemos usar para selecionar um nó no DOM , Document Object Model ou a estrutura em árvore da página HTML. Depois de selecionar o elemento com o nome do ID , obtemos o value dentro do input e o adicionamos ao nosso alerta.
+Observe que JavaScript usa aspas simples para strings por convenção, embora aspas duplas também possam ser usadas, desde que correspondam a cada string.
+Podemos adicionar mais atributos ao nosso formulário, para alterar o texto do espaço reservado, alterar o texto do botão, desativar o preenchimento automático ou focar o input automaticamente:
+
+<form>
+    <input autocomplete="off" autofocus id="name" placeholder="Name" type="text">
+    <input type="submit">
+</form>
+Também podemos ouvir eventos(events) em JavaScript, que ocorrem quando algo acontece na página. Por exemplo, podemos ouvir o evento de submit em nosso formulário e chamar a função  greet:  
+
+<script>
+
+    function greet()
+    {
+        let name = document.querySelector('#name').value;
+        alert('hello, ' + name);
+    }
+
+    function listen() {
+        document.querySelector('form').addEventListener('submit', greet);
+    }
+
+    document.addEventListener('DOMContentLoaded', listen);
+
+</script>
+Aqui, em listen , passamos a função greet por nome, e não a chamamos ainda. O ouvinte do evento irá chamá-lo para nós quando o evento acontecer.
+Precisamos primeiro ouvir o evento DOMContentLoaded, já que o navegador lê nosso arquivo HTML de cima para baixo, e o form não existiria até que ele lesse todo o arquivo e carregasse o conteúdo. Portanto, ao ouvir esse evento e chamar nossa função de listen , sabemos que form existirá.
+Também podemos usar funções anônimas em JavaScript:
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('form').addEventListener('submit', function() {
+            let name = document.querySelector('#name').value;
+            alert('hello, ' + name);
+        });
+    });
+
+</script>
+
+Podemos passar uma função lambda com a sintaxe function(), então aqui passamos os dois ouvintes diretamente para addEventListener.
+Além de submit , existem muitos outros eventos que podemos ouvir:
+
+blur
+change
+click
+drag
+focus
+keyup
+load
+mousedown
+mouseover
+mouseup
+submit
+touchmove
+unload
+…
+Por exemplo, podemos ouvir o evento keyup e alterar o DOM assim que liberarmos uma tecla:
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                let input = document.querySelector('input');
+                input.addEventListener('keyup', function(event) {
+                    let name = document.querySelector('#name');
+                    if (input.value) {
+                        name.innerHTML = `hello, ${input.value}`;
+                    }
+                    else {
+                        name.innerHTML = 'hello, whoever you are';
+                    }
+                });
+            });
+
+        </script>
+        <title>hello</title>
+    </head>
+    <body>
+        <form>
+            <input autocomplete="off" autofocus placeholder="Name" type="text">
+        </form>
+        <p id="name"></p>
+    </body>
+</html>
+
+Observe que também podemos substituir strings em JavaScript, com ${input.value} dentro de uma string cercada por crases, ` .
+Também podemos alterar o estilo de maneira programática:
+
+ <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>background</title>
+    </head>
+    <body>
+        <button id="red">R</button>
+        <button id="green">G</button>
+        <button id="blue">B</button>
+        <script>
+
+            let body = document.querySelector('body');
+            document.querySelector('#red').onclick = function() {
+                body.style.backgroundColor = 'red';
+            };
+            document.querySelector('#green').onclick = function() {
+                body.style.backgroundColor = 'green';
+            };
+            document.querySelector('#blue').onclick = function() {
+                body.style.backgroundColor = 'blue';
+            };
+
+        </script>
+    </body>
+</html>
+
+ Depois de selecionar um elemento, podemos usar a propriedade style para definir os valores das propriedades CSS também. Aqui, temos três botões, cada um dos quais com um ouvinte onclick que altera a cor de fundo do elemento <body>
+
+Observe aqui que nossa tag <script> está no final de nosso arquivo HTML, então não precisamos ouvir o evento DOMContentLoaded , uma vez que o resto do DOM já terá sido lido pelo navegador.  
+
+Podemos até usar isso para alterar uma página em nosso navegador depois de carregada, clicando em algum elemento e editando o HTML. Mas essas alterações serão feitas apenas em nosso navegador, não em nosso arquivo HTML original ou em alguma página da web em outro lugar.
+Em size.html, podemos definir o tamanho da fonte com um menu suspenso via JavaScript, e em blink.html podemos fazer um elemento “piscar”, alternando entre visível e oculto.
+
+Com geolocation.html, podemos pedir ao navegador as coordenadas GPS de um usuário e, com autocomplete.html, podemos preencher automaticamente algo que digitamos, com palavras de um arquivo de dicionário.
+
+Finalmente, podemos usar Python para escrever código que se conecta a outros dispositivos em uma rede local, como uma lâmpada, por meio de uma API , interface de programação de aplicativo. A API da nossa lâmpada, em particular, aceita solicitações em determinados URLs: 
+
+import os
+import requests
+
+USERNAME = os.getenv("USERNAME")
+IP = os.getenv("IP")
+
+URL = f"http://{IP}/api/{USERNAME}/lights/1/state"
+
+requests.put(URL, json={"on": False})
+
+Com este código, podemos usar o método PUT para enviar uma mensagem para a nossa lâmpada, desligando-a.
+Usamos variáveis de ambiente, valores armazenados em outro lugar em nosso computador, para nosso nome de usuário e endereço IP.
+Agora, com um pouco mais de lógica, podemos fazer nossa lâmpada piscar:
+
+import os
+import requests
+import time
+
+USERNAME = os.getenv("USERNAME")
+IP = os.getenv("IP")
+URL = f"http://{IP}/api/{USERNAME}/lights/1/state"
+
+while True:
+    requests.put(URL, json={"bri": 254, "on": True})
+    time.sleep(1)
+    requests.put(URL, json={"on": False})
+    time.sleep(1)

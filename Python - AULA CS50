@@ -1,0 +1,117 @@
+Python - AULA CS50
+
+Uma linguagem mais recente que C, ela possui recursos adicionais e também simplicidade, o que leva à sua popularidade.
+
+print("hello, world")
+
+Ao contrário de C, não precisamos especificar uma nova linha na função de print ou usar um ponto e vírgula para terminar nossa linha.
+
+------------- Condição e repetição ---------------
+
+if x < y:
+   print("X é menor que Y")
+elif x > y:
+   print("X é maior que Y")
+else:
+   print("X é igual a Y")
+
+Ao contrário de C, onde as chaves são usadas para indicar blocos de código, o recuo exato de cada linha é o que determina o nível de aninhamento em Python.
+E em vez de else if, apenas dizemos elif.
+
+As expressões booleanas também são ligeiramente diferentes:
+
+while True:
+   print("hello, world")
+
+Ambos True e False são capitalizados em Python.
+
+Podemos escrever um loop com uma variável:
+
+i = 0
+while i < 3:
+   print("hello, world")
+   i += 1
+
+--------------- Dados ---------------
+Em Python, existem muitos tipos de dados integrados:
+
+bool = True ou False
+float = números reais
+int = inteiros
+str = strings
+range = sequência de números
+list = sequência de valores mutáveis 
+tuple = coleção de valores ordenados como coordenadas xey ou longitude e latitude
+dict = dicionários, coleção de pares chave / valor, como uma tabela hash
+set = coleção de valores únicos ou valores sem duplicatas
+
+A biblioteca CS50 para Python inclui:
+
+get_float
+get_int
+get_string
+
+Podemos importar funções uma de cada vez ou todas juntas:
+
+from cs50 import get_float
+from cs50 import get_int
+from cs50 import get_string
+import cs50
+from cs50 import get_float, get_int, get_string
+
+Como o Python inclui muitos recursos, bem como bibliotecas de código escrito por outros, podemos resolver problemas em um nível mais alto de abstração, em vez de implementar todos os detalhes nós mesmos.
+
+
+--------------- Input ---------------
+Podemos obter a entrada do usuário com a função de input:
+
+EXEMPLO 1
+
+answer = input("Qual é seu nome? ")
+print(f"olá, {answer}")
+
+# Solicitar x ao usuário
+x = input("x:")
+
+# Solicitar ao usuário y
+y = input("y:")
+
+# Executar adição
+print(x + y)
+
+
+EXEMPLO 2
+
+# Solicitar x ao usuário
+x = int(input( "x:" ))
+
+# Solicitar ao usuário y
+y = int(input( "y:" ))
+
+# Executar divisão
+print(x/y)
+
+--------------- Listas, strings ---------------
+
+EXEMPLO 1
+
+scores = [72, 73, 33]
+
+print("Average: " + str(sum(scores) / len(scores)))
+
+Podemos usar sum, uma função incorporada ao Python, para somar os valores em nossa lista e dividi-la pelo número de pontuações, usando a função len para obter o comprimento da lista.
+
+--------------- Operadores ---------------
+
++ --> adição
+- --> subtração
+/ --> divisão
+// --> divisão inteira
+%  --> sobra de divisao
+* --> multiplicação
+** --> 
+!= --> diferente
+== --> comparação
+>= --> maior igual
+<= --> menor igual
+
